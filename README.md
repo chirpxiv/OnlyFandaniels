@@ -13,3 +13,4 @@ Repo URL: `https://raw.githubusercontent.com/chirpcodes/OnlyFandaniels/main/repo
 3. Copy and paste the repo URL (above) into the URL box and click the + button.
 4. Click on the "Save and Close" button.
 5. You will now be able to install the plugin in the Dalamud Plugin Installer by typing `/xlplugins` in chat.
+6. Once installed, type the `/fandaniel` command in chat to open the plugin interface.
