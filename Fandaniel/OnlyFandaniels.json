@@ -1,0 +1,14 @@
+{
+  "Author": "Chirp",
+  "Name": "OnlyFandaniels",
+  "Description": "Fandaniel.",
+  "InternalName": "Fandaniel",
+  "AssemblyVersion": "0.2.0",
+  "RepoUrl": "https://github.com/chirpcodes/OnlyFandaniels",
+  "ApplicableVersion": "any",
+  "Tags": [
+	"fandaniel",
+	"chirp",
+	"chirp_codes"
+  ]
+}
