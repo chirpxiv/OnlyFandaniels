@@ -25,8 +25,8 @@ namespace OnlyFandaniels {
 
 		internal DalamudPluginInterface PluginInterface { get; init; }
 		internal CommandManager CommandManager { get; init; }
-		internal ClientState ClientState { get; init; }
 		internal Condition Condition { get; init; }
+		internal ClientState ClientState { get; init; }
 		internal ObjectTable ObjectTable { get; init; }
 
 		internal delegate IntPtr CharInit(IntPtr actorPtr, IntPtr customize);
@@ -35,15 +35,15 @@ namespace OnlyFandaniels {
 		public OnlyFandaniels(
 			DalamudPluginInterface pluginInterface,
 			CommandManager cmdManager,
-			ClientState clientState,
 			Condition condition,
+			ClientState clientState,
 			ObjectTable objTable,
 			SigScanner sigScanner
 		) {
 			PluginInterface = pluginInterface;
 			CommandManager = cmdManager;
-			ClientState = clientState;
 			Condition = condition;
+			ClientState = clientState;
 			ObjectTable = objTable;
 
 			// Config
@@ -79,6 +79,7 @@ namespace OnlyFandaniels {
 
 		public void Dispose() {
 			PluginInterface.UiBuilder.Draw -= Ui.Draw;
+			PluginInterface.UiBuilder.OpenConfigUi -= OnConfig;
 
 			CharInitHook.Disable();
 			CharInitHook.Dispose();
@@ -86,6 +87,8 @@ namespace OnlyFandaniels {
 			CommandManager.RemoveHandler(CommandName);
 
 			Configuration.Save(this);
+
+			RefreshAll();
 		}
 
 		// Toggle UI on chat command
@@ -98,9 +101,12 @@ namespace OnlyFandaniels {
 			Ui.Toggle();
 		}
 
-		// Apply customize data to character
+		// Refresh all characters
 
 		public unsafe void RefreshAll() {
+			if (ClientState.LocalPlayer == null)
+				return;
+
 			for (var i = 0; i < ObjectTable.Length; i++) {
 				var obj = ObjectTable[i];
 				if (obj == null)
