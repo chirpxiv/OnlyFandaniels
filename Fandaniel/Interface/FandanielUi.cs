@@ -36,9 +36,21 @@ namespace OnlyFandaniels.Interface {
 				ImGui.BeginGroup();
 				ImGui.AlignTextToFramePadding();
 
-				if (ImGui.Button("Activate Fandaniel")) {
-					Plugin.Apply();
+				var active = Plugin.Active;
+				if (ImGui.Checkbox("Activate Fandaniel", ref active)) {
+					Plugin.Active = active;
+					Plugin.RefreshAll();
 				}
+
+				ImGui.Separator();
+
+				var cutscene = Plugin.Configuration.InCutscene;
+				if (ImGui.Checkbox("Active in Cutscene", ref cutscene))
+					Plugin.Configuration.InCutscene = cutscene;
+
+				var startup = Plugin.Configuration.OnStartup;
+				if (ImGui.Checkbox("Active on Startup", ref startup))
+					Plugin.Configuration.OnStartup = startup;
 			}
 
 			ImGui.PopStyleVar(1);

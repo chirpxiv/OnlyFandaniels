@@ -6,8 +6,12 @@ using Dalamud.Game.ClientState.Objects.Enums;
 namespace OnlyFandaniels {
 	[StructLayout(LayoutKind.Explicit)]
 	public unsafe struct Actor {
-		[FieldOffset(0x08C)] public byte Kind;
-		[FieldOffset(0x840)] public fixed byte Customize[0x1A];
+		[FieldOffset(0x08C)] public ObjectKind Kind;
+		/*[FieldOffset(0x840)] public fixed byte Customize[0x1A];
+
+		public bool ShouldApply() {
+			return Kind == ObjectKind.Player || Kind == ObjectKind.BattleNpc;
+		}*/
 
 		// https://github.com/ktisis-tools/Ktisis/blob/main/Ktisis/Structs/Actor/Actor.cs
 
@@ -18,13 +22,13 @@ namespace OnlyFandaniels {
 		=> ((delegate* unmanaged<IntPtr, void>**)addr)[0][16](addr);
 
 		public unsafe void Redraw() {
-			var isPlayer = Kind == (byte)ObjectKind.Player;
+			var isPlayer = Kind == ObjectKind.Player;
 			fixed (Actor* self = &this) {
 				var ptr = (IntPtr)self;
-				if (isPlayer) Kind = (byte)ObjectKind.BattleNpc;
+				if (isPlayer) Kind = ObjectKind.BattleNpc;
 				DisableDraw(ptr);
 				EnableDraw(ptr);
-				if (isPlayer) Kind = (byte)ObjectKind.Player;
+				if (isPlayer) Kind = ObjectKind.Player;
 			}
 		}
 	}
