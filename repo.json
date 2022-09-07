@@ -13,8 +13,8 @@
 			"chirp",
 			"chirp_codes"
 		],
-		"DownloadLinkInstall": "https://github.com/chirpcodes/OnlyFandaniels/releases/download/v0.2.0/OnlyFandaniels.0.2.0.zip",
-		"DownloadLinkTesting": "https://github.com/chirpcodes/OnlyFandaniels/releases/download/v0.2.0/OnlyFandaniels.0.2.0.zip",
-		"DownloadLinkUpdate": "https://github.com/chirpcodes/OnlyFandaniels/releases/download/v0.2.0/OnlyFandaniels.0.2.0.zip"
+		"DownloadLinkInstall": "https://github.com/chirpcodes/OnlyFandaniels/releases/download/v0.2.0/latest.zip",
+		"DownloadLinkTesting": "https://github.com/chirpcodes/OnlyFandaniels/releases/download/v0.2.0/latest.zip",
+		"DownloadLinkUpdate": "https://github.com/chirpcodes/OnlyFandaniels/releases/download/v0.2.0/latest.zip"
 	}
 ]
