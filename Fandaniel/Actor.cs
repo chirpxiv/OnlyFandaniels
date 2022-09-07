@@ -4,7 +4,7 @@ using System.Runtime.InteropServices;
 using Dalamud.Game.ClientState.Objects.Enums;
 
 namespace OnlyFandaniels {
-	[StructLayout(LayoutKind.Explicit, Size = 0x84A)]
+	[StructLayout(LayoutKind.Explicit)]
 	public unsafe struct Actor {
 		[FieldOffset(0x08C)] public byte Kind;
 		[FieldOffset(0x840)] public fixed byte Customize[0x1A];

@@ -32,7 +32,7 @@ namespace OnlyFandaniels.Interface {
 
 			ImGui.PushStyleVar(ImGuiStyleVar.WindowPadding, new Vector2(10, 10));
 
-			if (ImGui.Begin("Only Fandaniels", ref Visible)) {
+			if (ImGui.Begin("OnlyFandaniels", ref Visible)) {
 				ImGui.BeginGroup();
 				ImGui.AlignTextToFramePadding();
 
